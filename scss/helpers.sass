@@ -1,0 +1,32 @@
+@mixin sender()
+  color: $gray
+  font-size: 0.9em
+
+a
+  text-decoration: none
+
+.edit-trigger
+  display: inline-block
+  vertical-align: middle
+  height: 38px
+  margin-right: 30px
+  text-decoration: none
+
+.inline-block
+  display: inline-block
+
+.block
+  display: block
+
+@mixin keyframes($animationName)
+  @-webkit-keyframes #{$animationName}
+    @content
+
+  @-moz-keyframes #{$animationName}
+    @content
+
+  @-o-keyframes #{$animationName}
+    @content
+
+  @keyframes #{$animationName}
+    @content

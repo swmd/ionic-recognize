@@ -1,0 +1,18 @@
+<ion-view  title="About">
+    <ion-content>
+        <div class="about-view">
+            <img src="img/logo.png" width="100">
+            <p>v{{appVersion}}</p>
+            <h3>Resources</h3>
+
+            <ion-list>
+                <ion-item ng-repeat="resource in resources">
+                    <a href="javascript://" ng-click="openWebsite('{{resource.url}}')">{{resource.title}}</a>
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <!--<website-links></website-links>-->
+    </ion-content>
+    <ng-include src="'dist/shared/new_button.html'"></ng-include>
+</ion-view>

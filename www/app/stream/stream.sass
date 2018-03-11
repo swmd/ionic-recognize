@@ -1,0 +1,103 @@
+$hiddenFakeGray: #C5C5C5
+
+@include keyframes(placeHolderShimmer)
+  0%
+    background-position: -700px 0px
+
+  100%
+    background-position: 700px 0px
+
+.stream-view
+  .no-recognitions
+    display: none
+    padding: 10px
+
+  .hidden-if-recognitions
+    display: none
+
+    .stream-badge-img
+      width: 4em
+      height: 4em
+      border: 1px solid $lightGray
+      border-radius: 50%
+
+    .message,
+    .message:after
+      width: 90%
+      height: 8px
+      background: linear-gradient(to right, #f6f7f8 0%, #2C79A7 20%, #f6f7f8 40%, #f6f7f9 100%) 0% 0%/800px 104px no-repeat #f6f7f9
+      background-repeat: no-repeat
+      animation-timing-function: linear
+      animation-name: placeHolderShimmer
+      animation-iteration-count: infinite
+      animation-fill-mode: forwards
+      animation-duration: 2s
+      border-radius: 6px
+      position: relative
+
+    .message:after
+      content: ""
+      position: absolute
+      left: 0
+      bottom: -16px
+      width: 70%
+
+
+  .list > .hidden-if-recognitions:first-child
+    display: block
+
+  .recognition-item
+    border-bottom: 1px solid $lightGray
+    padding: 1.5em 0.5em
+    position: relative
+
+    .recognition-info
+      h2
+        margin-bottom: 1.5em
+
+    .content
+      min-height: 68px
+
+    .message
+      font-size: 1.2em
+      line-height: 1.4em
+      font-weight: 200
+      margin: 1em 0
+      display: block
+
+    h2
+      font-size: 0.9em
+
+    .stream-header-img
+      position: absolute
+      right: 10px
+      top: 22px
+      padding-left: 20px
+      text-align: center
+      min-width: 10%
+
+      h2, h3, h4, h5
+        margin-top: 0
+
+    .stream-badge-img
+      width: 4em
+      height: 4em
+
+    .stream-badge-recipient-img
+      width: 4em
+      height: 4em
+      border-radius: 50%
+      vertical-align: middle
+      border: 1px solid gainsboro
+
+    .stream-sender
+      margin: 0.2em 0em
+      @include sender
+
+  .recognition-recipient
+    width: 100%
+    float: left
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    padding-right: 20%

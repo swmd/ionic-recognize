@@ -1,0 +1,54 @@
+<ion-view class="stream-view" title="Recognitions">
+  <ion-content delegate-handle="stream-scroll">
+    <ion-refresher
+            pulling-text="Refresh..."
+            on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <div class="recognition-list" ng-repeat="recognition in recognitions">
+        <div class="recognition-item" ng-click="showRecognition(recognition)">
+          <div class="stream-header-img">
+            <img class="stream-badge-img" ng-src="{{recognition.badge.image_url}}">
+            <h2>{{recognition.badge.name}}</h2>
+          </div>
+          <div class="content">
+            <ion-list class="clearfix">
+              <div class="recognition-recipient" ng-repeat="recipient in recognition.user_recipients">
+                <img class="stream-badge-recipient-img" ng-src="{{recipient.avatar_url}}">
+                {{ recipient.label | capitalize: true }}
+              </div>
+            </ion-list>
+          </div>
+          <hm-read class="message" hmtext="{{ recognition.message }}" hmlimit="120" hm-more-text="Read more" hm-less-text="Read less">
+          </hm-read>
+          <div class="stream-sender">
+            From <strong>{{ recognition.sender.label | capitalize: true }}</strong>
+            {{ recognition.sent_at | timeAgo }}
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden-if-recognitions">
+        <div class="recognition-item" ng-repeat="i in [1, 2, 3, 4]">
+          <div class="stream-header-img">
+            <div class="stream-badge-img" ng-src="#"></div>
+            <h2></h2>
+          </div>
+          <div class="content">
+            <ion-list class="clearfix">
+              <div class="recognition-recipient">
+                <div class="stream-badge-recipient-img" ng-src="#"></div>
+              </div>
+            </ion-list>
+          </div>
+          <p class="message"></p>
+        </div>
+      </div>
+      <h3 class="no-recognitions">No recognitions at this time</h3>
+
+    </ion-list>
+    <ion-infinite-scroll ng-if="!noMoreRecognitions" on-infinite="loadMore()"  distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+  <ng-include src="'dist/shared/new_button.html'"></ng-include>
+</ion-view>

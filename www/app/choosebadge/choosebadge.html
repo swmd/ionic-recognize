@@ -1,0 +1,18 @@
+<ion-view class="choose-badge-view" title="Choose a badge">
+  <ion-header-bar class="bar-stable">
+    <button class="button back-button buttons button-clear icon ion-ios-arrow-back" ng-click="backToSendPage()">&nbsp;Back</button>
+    <ion-title>
+      Choose a Badge
+    </ion-title>
+  </ion-header-bar>
+  <ion-content>
+    <div align="center" class="clearfix">
+      <div ng-repeat="badge in badges" class="choose-badge-item">
+        <img  ng-src="{{badge.image_url}}" ng-click="chooseBadge(badge)">
+        <span>{{badge.name}}</span>
+      </div>
+    </div>
+    <ion-infinite-scroll ng-if="!noMoreBadges" on-infinite="loadMore()"  distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

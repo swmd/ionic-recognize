@@ -1,0 +1,42 @@
+<ion-view class="send-recognition-view" title="Send Recognition">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" ng-click="submitForm()">
+      Send
+    </button>
+  </ion-nav-buttons>
+  <form name="sendRecognitionForm" novalidate angular-validator angular-validator-submit='sendRecognition(data.badge, data.recipients, data.message)'>
+    <ion-content>
+      <div class="text-center choose-badge-wrapper">
+        <h4>{{data.badge.name}}</h4>
+        <img class="send-recognition-badge-img" ng-src="{{data.badge.image_url}}" ng-click="onChooseBadge()">
+      </div>
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Who do you want to recognize?</span>
+          <input ion-autocomplete type="text" placeholder="name@company.com"
+                 readonly="readonly" class="ion-autocomplete"
+                 autocomplete="off"
+                 ng-model="data.recipients"
+                 ng-hide="data.recipients.length"
+                 item-view-value-key="label"
+                 items-method="getRecipients(query, isInitializing)"
+                 items-method-value-key="items"
+          />
+          <div ng-repeat="recipient in data.recipients" class="send-recipient">
+            <img ng-src="{{recipient.avatar_url}}" class="send-recognition-recipient-img">
+            {{ recipient.label | capitalize: true }}
+          </div>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Message</span>
+          <textarea  placeholder="Reason for the recognition" ng-model="data.message">
+          </textarea>
+        </label>
+      </div>
+    </ion-content>
+    <div class="bar bar-footer clearfix hide-on-keyboard-open">
+      <button id="submit-button" type="submit">Send Recognition</button>
+    </div>
+  </form>
+</ion-view>
+<!--item-value-key="email"-->

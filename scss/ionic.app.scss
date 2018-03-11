@@ -1,0 +1,28 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+*/
+
+@import "colors";
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+// Global styles
+@import "forms";
+@import "layout";
+@import "helpers";
+
+// Page-specific styles
+@import "www/app/login/login";
+@import "www/app/stream/stream";
+@import "www/app/sendrecognition/sendrecognition";
+@import "www/app/about/about";
+@import "www/app/recognition/recognition";
+@import "www/app/choosebadge/choosebadge";
+@import "www/app/sidebar/sidebar";
+@import "www/app/directives/read-more/read-more";
+@import "www/app/directives/website-links/website-links";

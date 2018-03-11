@@ -1,0 +1,53 @@
+.recognition-view
+
+  .recognition-title
+    background: lighten($rBlue, 20%)
+    color: white
+    font-size: 1.5em
+    padding: 0.2em
+
+  .recognition-info
+    background: desaturate(lighten($rBlue, 55%), 80%)
+    padding: 0.5em
+    .text-center
+      margin-bottom: 0.5em
+
+      .recognition-badge-img
+        max-width: 8em
+
+    .recognition-recipient
+      float: left
+      padding: 0.5em 0.5em 0
+      width: 50%
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
+
+      &:only-of-type
+        width: 100%
+        float: none
+
+      .recognition-recipient-img
+        width: 1.6em
+        border-radius: 50%
+        vertical-align: middle
+
+  .recognition-social-media-buttons,
+  .recognition-content
+    padding: 1em
+
+  .recognition-content
+
+    .recognition-message
+      font-size: 1.8em
+      margin: 0.8em 0
+      line-height: 1.2em
+    .recognition-social-sharing-buttons
+      margin-top: 1em
+    .recognition-edit-buttons
+      margin-top: 100px
+      a
+        color: red
+        font-size: 1.6em
+  .recognition-sender
+    @include sender

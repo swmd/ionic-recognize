@@ -1,0 +1,13 @@
+{
+  "name": "Recognize",
+  "app_id": "e822c1d2",
+  "gulpStartupTasks": [
+    "sass",
+    "development",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

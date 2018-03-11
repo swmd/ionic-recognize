@@ -1,0 +1,50 @@
+<ion-view class="recognition-view" title="Recognition">
+
+    <ion-content>
+        <div class="item recognition-info">
+            <div class="text-center">
+                <img class="recognition-badge-img" ng-src="{{recognition.badge.image_url}}">
+                <h2>{{recognition.badge.name}}</h2>
+            </div>
+
+            <div class="clearfix">
+                <div ng-repeat="recipient in recognition.user_recipients" class="recognition-recipient">
+                    <img ng-src="{{recipient.avatar_url}}" class="recognition-recipient-img">
+                    {{recipient.label | capitalize: true}}
+                </div>
+            </div>
+        </div>
+        <div class="recognition-content">
+            <div class="recognition-message">
+                {{recognition.message}}
+            </div>
+            <div class="recognition-sender">
+                From
+                <strong>{{recognition.sender.label | capitalize: true}}</strong>
+                {{recognition.sent_at | timeAgo}}
+            </div>
+
+        </div>
+    </ion-content>
+
+
+    <div class="bar bar-footer clearfix">
+        <div class="recognition-social-media-buttons">
+            <a href="javascript://" class="edit-trigger" ng-show="recognition.permissions.delete" ng-click="deleteRecognition()">Delete</a>
+
+            <div class="inline-block" ng-show="recognition.is_public">
+                <a href="javascript://" class="share-facebook" ng-click="shareFacebook()">
+                    <i class="icon ion-social-facebook"></i>
+                </a>
+                <a href="javascript://" class="share-twitter" ng-click="shareTwitter()">
+                    <i class="icon ion-social-twitter"></i>
+                </a>
+                <a href="javascript://" class="share-linkedin" ng-click="shareLinkedin()">
+                    <i class="icon ion-social-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <ng-include src="'dist/shared/new_button.html'"></ng-include>
+</ion-view>
